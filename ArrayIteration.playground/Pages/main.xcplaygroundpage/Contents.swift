@@ -15,10 +15,7 @@
  */
 // write your code here
 
-
-
-
-
+let cart: [String] = ["Chips", "Salsa", "Guacamole", "Red wine"]
 
 /*: question2
  ### 2. You need to create a list that contains the numbers from 1 to 10. How would you represent this list in code? Explicitly mark the content of the cart as numbers.
@@ -26,8 +23,7 @@
 // write your code here
 
 
-
-
+let numbers: [Int] = [1,2,3,4,5,6,7,8,9,10]
 
 
 
@@ -35,7 +31,11 @@
  ### 3. Take the list of numbers you created in question 2 and print their values in the most efficient way possible.
  */
 // write your code here
+print(numbers)
 
+for number in numbers {
+    print(number)
+}
 
 
 
@@ -46,7 +46,11 @@
  ### 4. Take the list of shopping cart items you created in question 1 and print their values in the most efficient way possible. Prefix each item in the array with a string of text.
  */
 // write your code here
-
+for item in cart {
+    if var itemIndex = cart.indexOf(item) {
+        print("item \(itemIndex + 1): \(item)")
+    }
+}
 
 
 
@@ -57,10 +61,15 @@
  ### 5. Take the list of shopping cart items you created in question 1 and print their values by passing each item in list to a function to be printed.
  */
 // write your code here
+func printItem(item: String, itemIndex: Int?){
+    if let itemIndexForPrint = itemIndex {
+         print("item \(itemIndexForPrint + 1): \(item)")
+    }
+}
 
-
-
-
+for item in cart {
+        printItem(item, itemIndex: cart.indexOf(item))
+}
 
 
 
@@ -69,9 +78,18 @@
  */
 // write your code here
 
+func greetPeople(names: [String]) {
+    for name in names {
+        switch name {
+            case "Cenker":
+                print("Top of the morning Cenker!")
+            default:
+                print("Good morning \(name)")
+        }
+    }
+}
 
-
-
+greetPeople(["Michael", "Cenker"])
 
 
 /*: question7
@@ -79,8 +97,17 @@
  */
 // write your code here
 
+func arrayOfInts(numbersToCheck: [Int]) -> [Int] {
+    var lessThanFifty: [Int] = []
+    for eachNumber in numbersToCheck {
+        if eachNumber < 50 {
+            lessThanFifty.append(eachNumber)
+        }
+    }
+    return lessThanFifty
+}
 
-
+print(arrayOfInts([40, 60, 50, 52, 59, 13, 90, 100, 5, 52, 51, 49]))
 
 
 
